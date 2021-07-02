@@ -47,6 +47,7 @@ public class ApiTest {
      * Простейшая проверка: создаём объект, сохраняем на сервере и проверяем, что при запросе возвращается
      * "тот же" объект
      */
+
     @Test
     public void checkObjectSave() {
         Pet pet = new Pet(); // создаём экземпляр POJO объекта Pet
@@ -94,7 +95,6 @@ public class ApiTest {
         // TODO можно переопределить методы equals у объектов Pet и других, чтобы происходило корректное сравнение
         // не заданных полей с пустыми
         Assert.assertEquals(actual.getName(), pet.getName());
-
     }
 
     @Test
