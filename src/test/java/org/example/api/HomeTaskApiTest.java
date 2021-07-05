@@ -41,10 +41,12 @@ public class HomeTaskApiTest {
                 .then().statusCode(200).extract().body().as(Order.class);
         Assert.assertEquals(actual.getId(), order.getId());
 
-        given().pathParam("orderId", id)
+        System.setProperty("orderId", id + "");
+
+        given().pathParam("orderId", System.getProperty("orderId"))
                 .when().delete("/store/order/{orderId}")
                 .then().statusCode(200);
-        given().pathParam("orderId", id)
+        given().pathParam("orderId", System.getProperty("orderId"))
                 .when().get("/store/order/{orderId}")
                 .then().statusCode(404);
     }
